@@ -7,7 +7,7 @@ function Navbar() {
 
     return (
         <div id='navbarbody'>
-            <h1 id="logo"><span>Blog</span>Sphere</h1>
+            <h1 id="logo" onClick={() => { navigate('/') }}><span>Blog</span>Sphere</h1>
             <div id="headlinks">
                 <ul>
                     <li onClick={() => navigate('/')}>Home</li>
@@ -15,7 +15,7 @@ function Navbar() {
                     <li onClick={() => navigate('/about')}>About</li>
                 </ul>
             </div>
-            <button id='btnNav' onClick={() => navigate('/create') }>Create</button>
+            <button id='btnNav' onClick={() => navigate('/create')}>Create</button>
         </div>
     )
 }
