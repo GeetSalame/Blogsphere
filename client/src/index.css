@@ -7,13 +7,14 @@
   transition: all 0.3s ease;
   scroll-behavior: smooth;
   font-family: 'Poppins', sans-serif;
+  letter-spacing: .05rem;
 }
 
 :root {
   --theme-pri: red;
   --theme-sec: blue;
   --theme-ter: yellow;
-  --navbar-height : 50px;
+  --navbar-height: 50px;
 }
 
 
@@ -24,7 +25,7 @@ body {
 .btn {
   color: var(--theme-pri);
   background-color: transparent;
-  padding: 10px 20px;
+  padding: 5px 20px;
   border: 2px solid var(--theme-pri);
   margin: 20px 0;
   font-weight: bolder;
@@ -33,4 +34,10 @@ body {
 .btn:hover {
   color: white;
   background-color: var(--theme-pri);
+}
+
+#footer {
+  color: silver;
+  text-align: center;
+  margin: 50px 0 30px;
 }
