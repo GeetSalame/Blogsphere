@@ -26,7 +26,7 @@ function Blogcard({ blogObj }) {
                 </div>
                 <a id='title' title={blogObj.title}>{blogObj.title}</a>
                 <p id='desc'>{blogObj.description}</p>
-                <button className='btn' id='readbtn' onClick={() => { navigate('/blog:id') }}>Read</button>
+                <button className='btn' id='readbtn' onClick={() => { navigate(`/blog/${blogObj._id}`) }}>Read</button>
             </div>
         </div>
     )

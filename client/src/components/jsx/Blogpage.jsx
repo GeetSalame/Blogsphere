@@ -33,9 +33,9 @@ function Blogpage() {
             <div id="blogsSec">
                 <h3>Blogs</h3>
                 <div id='blogs'>
-                    {blogs.map(blog => (
+                    {blogs ? blogs.map(blog => (
                         <Blogcard blogObj={blog} />
-                    )).reverse()}
+                    )).reverse() : <><p style={{ textAlign: "center" }}>Coudn't fetch blogs... <br /> Couldn't connect to server...</p></>}
                 </div>
             </div>
         </div>

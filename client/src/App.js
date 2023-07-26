@@ -21,7 +21,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/blogs" element={<Blogpage />} />
           <Route path="/create" element={<Createblog />} />
-          <Route path="/blog:id" element={<Readblog />} />
+          <Route path="/blog/:id" element={<Readblog />} />
           <Route path="/update:id" element={<Updateblog />} />
           <Route path="/about" element={<Aboutpage />} />
           <Route path="/*" element={<Pagenotfound />} />
