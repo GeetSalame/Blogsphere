@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/blogpage.css';
 import Blogcard from './Blogcard';
 import categories from '../../data/categories.js';
 
+//APIs
+import { apiGetAllBlogs } from '../../service/api';
+
 function Blogpage() {
+    const [blogs, setBlogs] = useState([]);
+
+    useEffect(() => {
+        const loadBlogsData = async () => {
+            let allBlogs = await apiGetAllBlogs();
+            // console.log("1: ", allBlogs);
+            setBlogs(allBlogs);
+        }
+        loadBlogsData();
+    }, [])  //get all blogs at every page refresh
+
     return (
         <div id='blogpage'>
             <div id='filterSec'>
@@ -19,16 +33,9 @@ function Blogpage() {
             <div id="blogsSec">
                 <h3>Blogs</h3>
                 <div id='blogs'>
-                    <Blogcard />
-                    <Blogcard />
-                    <Blogcard />
-                    <Blogcard />
-                    <Blogcard />
-                    <Blogcard />
-                    <Blogcard />
-                    <Blogcard />
-                    <Blogcard />
-                    <Blogcard />
+                    {blogs.map(blog => (
+                        <Blogcard blogObj={blog} />
+                    )).reverse()}
                 </div>
             </div>
         </div>

@@ -49,7 +49,10 @@
 #blogsSec {
     display: flex;
     flex-direction: column;
-    margin-left: var(--filterSecWidth);
+    align-items: center;
+    justify-content: start;
+    margin-left: calc(var(--filterSecWidth));
+    width: 100%;
 }
 
 h3 {

@@ -10,3 +10,13 @@ export const createBlog = async (req, res) => {
         res.status(500).json(error);
     }
 }
+
+export const getAllBlogs = async (req, res) => {
+    console.log("getAllBlogs request from client : ", req.body);
+    try {
+        let blogs = await Blog.find({});    //finding all blogs in table refrenced to the name Blog
+        res.status(200).json(blogs);
+    } catch (error) {
+        res.status(500).json(error);
+    }
+}

@@ -3,7 +3,9 @@ export const categories = [
     "Movies",
     "Educational",
     "News",
+    "Politics",
     "Entertainment",
+    "Sports",
     "Health",
     "Fashion",
     "Others"
