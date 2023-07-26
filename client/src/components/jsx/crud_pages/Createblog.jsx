@@ -3,9 +3,11 @@ import '../../styles/createblog.css';
 import { useNavigate } from 'react-router-dom';
 import categories from '../../../data/categories';
 
+// API calls
+import { apiCreateBlog } from '../../../service/api';
+
 function Createblog() {
   var BlogTheme;
-  const defaultBlogTheme = "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg";
 
   const navigate = useNavigate();
 
@@ -52,13 +54,18 @@ function Createblog() {
     else if (!(blogDetail.blogimg)) alert("Something went wrong!!! We couldn't get your blog image");
     else if (!(blogDetail.author)) alert("Seems like you are not logged in. Please log in and come again. Your work might get lost");
     else if (!(blogDetail.timepublished)) alert("Something went wrong!!! We coudn't fetch current time...");
-    else console.log(blogDetail);
+    else {
+      console.log(blogDetail);
+      await apiCreateBlog(blogDetail);
+      alert("Blog posted!!!!");
+      navigate("/blogs");
+    }
   }
 
   return (
     <div id='createpage'>
       <div id="createblogtheme">
-        <img src={BlogTheme ? BlogTheme : defaultBlogTheme} alt="Blog Image" />
+        <img src={BlogTheme ? BlogTheme : blogDetail.blogimg} alt="Blog Image" />
         <img className='editphoto' src="https://cdn-icons-png.flaticon.com/512/860/860763.png" alt="Change Photo" onClick={() => { changeBlogTheme() }} />
       </div>
       <div id="createblogbody">

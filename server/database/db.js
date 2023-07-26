@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const Connection = async () => {
+const dbConnection = async () => {
 
     try {
         const dbURL = 'mongodb+srv://geetsalame156:Mongodbat123@blogspheredb.8kthxtd.mongodb.net/?retryWrites=true&w=majority'
@@ -14,4 +14,4 @@ const Connection = async () => {
     }
 }
 
-export default Connection;
+export default dbConnection;
