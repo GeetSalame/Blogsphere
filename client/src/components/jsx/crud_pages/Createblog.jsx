@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../styles/createblog.css';
 import { useNavigate } from 'react-router-dom';
 import categories from '../../../data/categories';
@@ -7,8 +7,6 @@ import categories from '../../../data/categories';
 import { apiCreateBlog } from '../../../service/api';
 
 function Createblog() {
-  var BlogTheme;
-
   const navigate = useNavigate();
 
   const formatTime = (time) => {
@@ -25,7 +23,7 @@ function Createblog() {
     title: "",
     description: "",
     category: "",
-    blogimg: "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg",
+    blogimg: "",
     author: "",
     timepublished: formatTime(new Date())
   });
@@ -39,14 +37,19 @@ function Createblog() {
     }
   }
 
-  const changeBlogTheme = () => {
+  const changeBlogThemebyLocal = () => {
     console.log("Blog theme chang clicked");
   }
+  const changeBlogThemebyLink = () => {
+    console.log("Blog theme chang clicked by link");
+    document.getElementById("getImgLink").style.display = "block";
+
+  }
+
 
   const changeBlogDetail = (e) => {
     setBlogDetail({ ...blogDetail, [e.target.name]: e.target.value });
   }
-
 
   const Publish = async () => {
     if (!(blogDetail.title)) alert("Seems like you forgot to add title");
@@ -63,11 +66,19 @@ function Createblog() {
     }
   }
 
+  useEffect(() => {
+    document.getElementById("blogImg").src = blogDetail.blogimg || "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg";
+  }, [blogDetail.blogimg])
+
   return (
     <div id='createpage'>
       <div id="createblogtheme">
-        <img src={BlogTheme ? BlogTheme : blogDetail.blogimg} alt="Blog Image" />
-        <img className='editphoto' src="https://cdn-icons-png.flaticon.com/512/860/860763.png" alt="Change Photo" onClick={() => { changeBlogTheme() }} />
+        <img id='blogImg' alt="Blog Image" />
+        <div className='editphoto'>
+          {/* <img src="https://cdn-icons-png.flaticon.com/512/860/860763.png" alt="Change Photo" onClick={() => { changeBlogThemebyLocal() }} /> */}
+          <img src="https://cdn-icons-png.flaticon.com/512/154/154843.png" alt="Change Photo" onClick={() => { changeBlogThemebyLink() }} />
+          <input type="text" name="blogimg" id="getImgLink" placeholder='Enter link here...' onChange={(e) => { changeBlogDetail(e) }} />
+        </div>
       </div>
       <div id="createblogbody">
         <select name="category" id="createcategory" onChange={(e) => { changeBlogDetail(e) }}>
@@ -78,7 +89,7 @@ function Createblog() {
         </select>
         <input type="text" name="title" id="createbtitle" placeholder='Click here to add Title' onChange={(e) => { changeBlogDetail(e) }} />
         <textarea name="description" id="createbblah" cols="30" rows="5" placeholder='Click here to tell your story...' onKeyUp={(e) => { adjustTextArea(e) }} onChange={(e) => { changeBlogDetail(e) }}></textarea>
-        <input type="text" name="author" id="createbauthor" placeholder='Click here to add Author...' onChange={(e) => { changeBlogDetail(e) }} />
+        <input type="text" name="author" id="createbauthor" maxLength={20} placeholder='Click here to add Author...' onChange={(e) => { changeBlogDetail(e) }} />
         <div id="bpostsec">
           <button className='btn' id='bdiscard' onClick={() => { navigate('/') }}>Discard</button>
           <button className='btn' id='bpost' onClick={() => { Publish(); }}>Publish</button>

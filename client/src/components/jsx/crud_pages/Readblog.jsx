@@ -34,7 +34,7 @@ function Readblog(props) {
                 blog.title ?
                     <>
                         <div id="blogtheme">
-                            <img src={defaultBlogTheme} alt="Blog Image" />
+                            <img src={blog.blogimg || defaultBlogTheme} alt="Blog Image" />
                         </div>
                         <div id="blogbody">
                             <h1 id="btitle">{blog.title}</h1>
@@ -50,8 +50,8 @@ function Readblog(props) {
                         </div>
                     </>
                     : <div style={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <ReactLoading type="spokes" color="#FF0000" height={200} width={100} />
-                </div>
+                        <ReactLoading type="spokes" color="#FF0000" height={200} width={100} />
+                    </div>
             }
         </div >
     )

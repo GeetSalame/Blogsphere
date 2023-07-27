@@ -11,7 +11,6 @@ function Updateblog() {
 
     const navigate = useNavigate();
     const defaultBlogTheme = "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg";
-    var BlogTheme;
 
     const adjustTextArea = (e) => {
         if (e.key === "Enter") {
@@ -63,14 +62,30 @@ function Updateblog() {
         navigate('/blogs');
     }
 
+    useEffect(() => {
+        try {
+            document.getElementById("blogImg").src = blog.blogimg || "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg";
+        } catch (error) {
+            console.log(error);
+        }
+    }, [blog.blogimg])
+
+    const changeBlogThemebyLink = () => {
+        console.log("Blog theme chang clicked by link");
+        document.getElementById("getImgLink").style.display = "block";
+    }
+
     return (
         <div id='updatepage'>
             {
                 blog.title ?
                     <>
                         <div id="updateblogtheme">
-                            <img src={BlogTheme ? BlogTheme : defaultBlogTheme} alt="Blog Image" />
-                            <img className='editphoto' src="https://cdn-icons-png.flaticon.com/512/860/860763.png" alt="Change Photo" onClick={() => { changeBlogTheme() }} />
+                            <img id="blogImg" alt="Blog Image" />
+                            <div className='editphoto'>
+                                <img src="https://cdn-icons-png.flaticon.com/512/154/154843.png" alt="Change Photo" onClick={() => { changeBlogThemebyLink() }} />
+                                <input type="text" name="blogimg" id="getImgLink" placeholder='Enter link here...' onChange={(e) => { handleBlogChange(e) }} />
+                            </div>
                         </div>
                         <div id="updateblogbody">
                             <select name="" id="updatecategory">
