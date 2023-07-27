@@ -26,7 +26,7 @@ function Createblog() {
     description: "",
     category: "",
     blogimg: "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg",
-    author: "@someAuthor",
+    author: "",
     timepublished: formatTime(new Date())
   });
 
@@ -46,6 +46,7 @@ function Createblog() {
   const changeBlogDetail = (e) => {
     setBlogDetail({ ...blogDetail, [e.target.name]: e.target.value });
   }
+
 
   const Publish = async () => {
     if (!(blogDetail.title)) alert("Seems like you forgot to add title");
@@ -77,6 +78,7 @@ function Createblog() {
         </select>
         <input type="text" name="title" id="createbtitle" placeholder='Click here to add Title' onChange={(e) => { changeBlogDetail(e) }} />
         <textarea name="description" id="createbblah" cols="30" rows="5" placeholder='Click here to tell your story...' onKeyUp={(e) => { adjustTextArea(e) }} onChange={(e) => { changeBlogDetail(e) }}></textarea>
+        <input type="text" name="author" id="createbauthor" placeholder='Click here to add Author...' onChange={(e) => { changeBlogDetail(e) }} />
         <div id="bpostsec">
           <button className='btn' id='bdiscard' onClick={() => { navigate('/') }}>Discard</button>
           <button className='btn' id='bpost' onClick={() => { Publish(); }}>Publish</button>
