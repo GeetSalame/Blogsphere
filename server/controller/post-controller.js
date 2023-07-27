@@ -12,9 +12,14 @@ export const createBlog = async (req, res) => {
 }
 
 export const getAllBlogs = async (req, res) => {
-    console.log("getAllBlogs request from client : ", req.body);
+    console.log("getAllBlogs request from client for category : ", req.params.catg);
+    let blogs;
     try {
-        let blogs = await Blog.find({});    //finding all blogs in table refrenced to the name Blog
+        if (req.params.catg === "All") {
+            blogs = await Blog.find({});    //finding all blogs in table refrenced to the name Blog
+        } else {
+            blogs = await Blog.find({ category: req.params.catg });    //finding all blogs matching category in table refrenced to the name Blog
+        }
         res.status(200).json(blogs);
     } catch (error) {
         res.status(500).json(error);
