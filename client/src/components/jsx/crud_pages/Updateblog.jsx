@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../../styles/updateblog.css';
 import categories from '../../../data/categories';
 import { useNavigate } from 'react-router-dom';
+import ReactLoading from 'react-loading';
 
 //API calls
 import { apiDeleteBlog, apiGetBlog, apiUdpdateBlog } from '../../../service/api';
@@ -64,25 +65,33 @@ function Updateblog() {
 
     return (
         <div id='updatepage'>
-            <div id="updateblogtheme">
-                <img src={BlogTheme ? BlogTheme : defaultBlogTheme} alt="Blog Image" />
-                <img className='editphoto' src="https://cdn-icons-png.flaticon.com/512/860/860763.png" alt="Change Photo" onClick={() => { changeBlogTheme() }} />
-            </div>
-            <div id="updateblogbody">
-                <select name="" id="updatecategory">
-                    <option value="" style={{ color: "silver" }} disabled>Select Category</option>
-                    {categories.map(category =>
-                        <option value="">{category}</option>
-                    )}
-                </select>
-                <input type="text" name="title" id="updatebtitle" value={`${blog.title}`} onChange={(e) => { handleBlogChange(e) }} />
-                <textarea name="description" id="updatebblah" cols="30" rows="5" onKeyUp={(e) => { adjustTextArea(e) }} value={`${blog.description}`} onChange={(e) => { handleBlogChange(e) }}></textarea>
-                <div id="updatebpostsec">
-                    <button className='btn' id='bdiscard' onClick={() => { navigate(`/blog/${blog._id}`) }}>Discard</button>
-                    <button className='btn' id='bdelete' onClick={() => { handleDelete() }}>Delete</button>
-                    <button className='btn' id='bpost' onClick={() => { handleUpdate() }}>Update</button>
-                </div>
-            </div>
+            {
+                blog.title ?
+                    <>
+                        <div id="updateblogtheme">
+                            <img src={BlogTheme ? BlogTheme : defaultBlogTheme} alt="Blog Image" />
+                            <img className='editphoto' src="https://cdn-icons-png.flaticon.com/512/860/860763.png" alt="Change Photo" onClick={() => { changeBlogTheme() }} />
+                        </div>
+                        <div id="updateblogbody">
+                            <select name="" id="updatecategory">
+                                <option value="" style={{ color: "silver" }} disabled>Select Category</option>
+                                {categories.map(category =>
+                                    <option value="">{category}</option>
+                                )}
+                            </select>
+                            <input type="text" name="title" id="updatebtitle" value={`${blog.title}`} onChange={(e) => { handleBlogChange(e) }} />
+                            <textarea name="description" id="updatebblah" cols="30" rows="5" onKeyUp={(e) => { adjustTextArea(e) }} value={`${blog.description}`} onChange={(e) => { handleBlogChange(e) }}></textarea>
+                            <div id="updatebpostsec">
+                                <button className='btn' id='bdiscard' onClick={() => { navigate(`/blog/${blog._id}`) }}>Discard</button>
+                                <button className='btn' id='bdelete' onClick={() => { handleDelete() }}>Delete</button>
+                                <button className='btn' id='bpost' onClick={() => { handleUpdate() }}>Update</button>
+                            </div>
+                        </div>
+                    </>
+                    : <div style={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                        <ReactLoading type="spokes" color="#FF0000" height={200} width={100} />
+                    </div>
+            }
         </div>
     )
 }
