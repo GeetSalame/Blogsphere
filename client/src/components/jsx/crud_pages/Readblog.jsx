@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import '../../styles/readblog.css';
 import defaultBlogTheme from '../../../img/defaultBlogTheme.png';
+import { useNavigate } from 'react-router-dom';
 
 //API calls
 import { apiGetBlog } from '../../../service/api';
 
 function Readblog(props) {
+    const navigate = useNavigate();
+
     const [blog, setBlog] = useState({});
     const blogId = window.location.href.split('/').slice(-1)[0];
 
@@ -30,6 +33,10 @@ function Readblog(props) {
                     <p id="buthor">@{blog.author}</p>
                 </div>
                 <p id="bblah">{blog.description}</p>
+                <div id="beditsec">
+                    <button className='btn' id='bdelete'>Delete</button>
+                    <button className='btn' id='bupdate' onClick={() => { navigate(`/update/${blog._id}`) }}>Update</button>
+                </div>
             </div>
         </div>
     )

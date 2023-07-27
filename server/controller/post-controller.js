@@ -30,3 +30,14 @@ export const getBlog = async (req, res) => {
         res.status(500).json(error);
     }
 }
+
+export const updateBlog = async (req, res) => {
+    console.log("UpdateBlog request from client : ", req.body);
+    try {
+        console.log("req.body : ", req.body)
+        await Blog.findByIdAndUpdate(req.params.id, { $set: req.body })
+        res.status(200).json("Blog posted successfully");
+    } catch (error) {
+        res.status(500).json(error);
+    }
+}

@@ -23,9 +23,18 @@ export const apiGetAllBlogs = async () => {
 export const apiGetBlog = async (blogId) => {
     try {
         let blog = await axios.get(`${URL}/blog/${blogId}`);
-        console.log("Blog data : ", blog.data);
+        // console.log("Blog data : ", blog.data);
         return blog.data;   //getting only the data part of whole object where all blog objects are located
     } catch (error) {
         alert("API Error while getting post, ", error);
+    }
+}
+
+export const apiUdpdateBlog = async (blogDetailObj) => {
+    try {
+        // alert("Hurrah!!! Your Blog is live now...");
+        return await axios.post(`${URL}/update/${blogDetailObj._id}`, blogDetailObj);    //making post req to server URL by giving blogdetail variable obj
+    } catch (error) {
+        alert("API Error : updating post, ", error);
     }
 }
