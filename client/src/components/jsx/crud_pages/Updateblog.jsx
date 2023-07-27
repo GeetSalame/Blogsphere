@@ -4,8 +4,7 @@ import categories from '../../../data/categories';
 import { useNavigate } from 'react-router-dom';
 
 //API calls
-import { apiGetBlog } from '../../../service/api';
-import { apiUdpdateBlog } from '../../../service/api';
+import { apiDeleteBlog, apiGetBlog, apiUdpdateBlog } from '../../../service/api';
 
 function Updateblog() {
 
@@ -57,6 +56,12 @@ function Updateblog() {
         }
     }
 
+    const handleDelete = async () => {
+        await apiDeleteBlog(blog._id);
+        alert("Blog deleted successfully");
+        navigate('/blogs');
+    }
+
     return (
         <div id='updatepage'>
             <div id="updateblogtheme">
@@ -74,7 +79,7 @@ function Updateblog() {
                 <textarea name="description" id="updatebblah" cols="30" rows="5" onKeyUp={(e) => { adjustTextArea(e) }} value={`${blog.description}`} onChange={(e) => { handleBlogChange(e) }}></textarea>
                 <div id="updatebpostsec">
                     <button className='btn' id='bdiscard' onClick={() => { navigate(`/blog/${blog._id}`) }}>Discard</button>
-                    <button className='btn' id='bdelete' onClick={() => { navigate('/blogs') }}>Delete</button>
+                    <button className='btn' id='bdelete' onClick={() => { handleDelete() }}>Delete</button>
                     <button className='btn' id='bpost' onClick={() => { handleUpdate() }}>Update</button>
                 </div>
             </div>

@@ -4,7 +4,7 @@ import defaultBlogTheme from '../../../img/defaultBlogTheme.png';
 import { useNavigate } from 'react-router-dom';
 
 //API calls
-import { apiGetBlog } from '../../../service/api';
+import { apiDeleteBlog, apiGetBlog } from '../../../service/api';
 
 function Readblog(props) {
     const navigate = useNavigate();
@@ -21,6 +21,12 @@ function Readblog(props) {
         loadBlogData();
     }, [])  //get all blogs at every page refresh
 
+    const handleDelete = async () => {
+        await apiDeleteBlog(blog._id);
+        alert("Blog deleted successfully");
+        navigate('/blogs');
+    }
+
     return (
         <div id='readpage'>
             <div id="blogtheme">
@@ -34,7 +40,7 @@ function Readblog(props) {
                 </div>
                 <p id="bblah">{blog.description}</p>
                 <div id="beditsec">
-                    <button className='btn' id='bdelete'>Delete</button>
+                    <button className='btn' id='bdelete' onClick={() => { handleDelete() }}>Delete</button>
                     <button className='btn' id='bupdate' onClick={() => { navigate(`/update/${blog._id}`) }}>Update</button>
                 </div>
             </div>

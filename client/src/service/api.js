@@ -38,3 +38,10 @@ export const apiUdpdateBlog = async (blogDetailObj) => {
         alert("API Error : updating post, ", error);
     }
 }
+export const apiDeleteBlog = async (id) => {
+    try {
+        await axios.delete(`${URL}/delete/${id}`);    //making post req to server URL by giving blogdetail variable obj
+    } catch (error) {
+        alert("API Error : updating post, ", error);
+    }
+}

@@ -7,6 +7,7 @@ export const categories = [
     "Entertainment",
     "Sports",
     "Health",
+    "Nature",
     "Fashion",
     "Others"
 ]

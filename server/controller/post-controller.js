@@ -41,3 +41,16 @@ export const updateBlog = async (req, res) => {
         res.status(500).json(error);
     }
 }
+
+export const deleteBlog = async (req, res) => {
+    console.log("getBlog request from client : ", req.body);
+    try {
+        console.log(req.params.id)
+        // let blog = await Blog.findById(req.params.id);
+        // await blog.remove();
+        let deleteB = await Blog.deleteOne({ _id: req.params.id });
+        res.status(200).json(deleteB);
+    } catch (error) {
+        res.status(500).json(error);
+    }
+}
