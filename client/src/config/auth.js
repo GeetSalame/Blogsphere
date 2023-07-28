@@ -31,11 +31,12 @@ export const Auth = () => {
             console.error(err);
         }
     };
-
+    
     const signInWithGoogle = async () => {
         try {
             await signInWithPopup(auth, googleProvider);
-            alert("User Created!!");
+            alert("Logged In!!");
+            setTimeout(navigate("/"), 2000);
         } catch (err) {
             alert(err);
             console.error(err);

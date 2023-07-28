@@ -74,9 +74,13 @@ function Navbar() {
                             <img src={leftArrow} id='backArrow' alt="back" onClick={() => { hideProfilesec() }} />
                         </div>
                     </> :
-                    <>
-                        <button className='btn' onClick={() => { navigate('/login') }}>Login / SignUp</button>
-                    </>
+                    <div>
+
+                        <a href="/login#signinSec"><button style={{ marginRight: "20px" }} className='btn' onClick={() => { navigate('/login#signinSec') }}> LogIn </button></a>
+                        <a href="/login#signupSec">
+                            <button className='btn2' onClick={() => { navigate('/login#signupSec') }}>SignUp</button>
+                        </a>
+                    </div>
             }
         </div>
     )

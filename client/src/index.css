@@ -11,7 +11,7 @@
 }
 
 :root {
-  --theme-pri: red;
+  --theme-pri: rgb(255, 0, 0);
   --theme-sec: blue;
   --theme-ter: yellow;
   --navbar-height: 50px;
@@ -36,6 +36,21 @@ body {
   color: white;
   background-color: var(--theme-pri);
 }
+
+.btn2 {
+  color: white;
+  background-color: var(--theme-pri);
+  padding: 5px 20px;
+  border: 2px solid var(--theme-pri);
+  margin: 20px 0;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+/* .btn2:hover {
+  color: var(--theme-pri);
+  background-color: transparent;
+} */
 
 #footer {
   color: silver;
