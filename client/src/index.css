@@ -64,3 +64,18 @@ body {
   height: 30px;
   padding: 10px;
 }
+
+/*------------------------------------------ Responsiveness */
+@media screen and (max-width : 1000px) {
+  .btn, .btn2{
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width : 800px) {
+  .btn, .btn2 {
+    font-size: 7px;
+    padding: 3px 10px;
+    margin: 0;
+  }
+}

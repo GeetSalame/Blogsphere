@@ -9,13 +9,15 @@ function Homepage() {
     const navigate = useNavigate();
     return (
         <div id='homepage'>
-            <div id="left">
+            <div id="homeleft">
                 <h1>Welcome to <span id='logo'><span>Blog</span>Sphere</span></h1>
-                <p >Embark the Journey of Exploration</p>
-                {/* <p style={{ fontStyle: 'italic' }}>Embark the Journey of Exploration</p> */}
+                <p>Embark the Journey of Exploration</p>
                 <button className='btn' onClick={() => { auth.currentUser ? navigate('/create') : navigate('/login') }}>Start Blogging</button>
             </div>
-            <div id="right">
+            <div id="homeright">
+                <img src={bloggingPNG} alt="blogging" />
+            </div>
+            {/* <div id="homeright">
                 {
                     bloggingPNG ? <>
                         <img src={bloggingPNG} alt="blogging" />
@@ -24,7 +26,7 @@ function Homepage() {
                             <ReactLoading type="spokes" color="#FF0000" height={200} width={100} />
                         </div>
                 }
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -88,7 +88,7 @@
     transform: rotate(180deg);
 }
 
-#myBlogs{
+#myBlogs {
     color: var(--theme-pri);
     font-weight: bold;
     width: 100%;
@@ -96,7 +96,102 @@
     cursor: pointer;
 }
 
-#myBlogs:hover{
+#myBlogs:hover {
     background: rgba(192, 192, 192, 0.1);
     transform: scale(1.1);
+}
+
+
+#navMenu {
+    height: 20px;
+    display: none;
+}
+
+#sidenav {
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    border: 2px solid red;
+    padding: 20px 0 0;
+
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px outset rgba(255, 255, 255, .1);
+    box-shadow: 0px 0px 10px rgba(255, 167, 167, 0.8);
+    backdrop-filter: blur(2px);
+}
+
+#sideheadlinks>ul{
+    font-size: small;
+    list-style: none;
+    margin: 30px 0 50px;
+}
+
+#sideheadlinks>ul>li{
+    margin: 10px 0;
+}
+
+#sideloginSec{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#sideloginSec>*{
+    margin: 0;
+}
+
+#sideloginSec>*>*{
+    margin: 0;
+}
+
+/*------------------------------------------ Responsiveness */
+@media screen and (max-width : 1000px) {
+    #logo {
+        font-size: 20px;
+    }
+
+    #headlinks>ul>li {
+        margin: 30px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width : 800px) {
+    #logo {
+        font-size: 15px;
+    }
+
+    #headlinks>ul>li {
+        margin: 20px;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    #headlinks>ul>li {
+        margin: 15px;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width : 500px) {
+    #logo {
+        font-size: 20px;
+    }
+
+    #navMenu {
+        display: block;
+    }
+
+    #headlinks,
+    #btnNav,
+    #loginSec {
+        display: none;
+    }
 }

@@ -1,7 +1,100 @@
-#homepage{
+#homepage {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 98vw;
     min-height: 80vh;
+}
+
+
+/*------------------------------------------ Responsiveness */
+@media screen and (max-width : 1000px) {
+    #homepage {
+        width: 100vw;
+        min-height: 100vh;
+        gap: 10px;
+    }
+
+    #homeleft>h1 {
+        font-size: 25px;
+    }
+
+    #homeleft>p {
+        font-size: 13px;
+    }
+
+    #homeleft>button {
+        font-size: 9px;
+    }
+
+    #homeright>img {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width : 800px) {
+    #homepage {
+        padding: 0 50px;
+    }
+}
+
+@media screen and (max-width : 700px) {
+    #homepage {
+        gap: 20px;
+    }
+
+    #homeleft>h1 {
+        font-size: 20px;
+    }
+
+    #homeleft>p {
+        font-size: 10px;
+    }
+
+    #homeleft>button {
+        font-size: 8px;
+        padding: 4px 10px;
+    }
+
+    #homeright>img {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    #homepage {
+        gap: 10px;
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    #homeleft>h1 {
+        font-size: 20px;
+    }
+
+    #homeleft>p {
+        font-size: 10px;
+    }
+
+    #homeleft>button {
+        font-size: 8px;
+        padding: 4px 10px;
+    }
+
+    #homeright>img {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width : 500px) {
+    #homeleft>h1 {
+        font-size: 15px;
+    }
+    #homeleft>p {
+        font-size: 7px;
+    }
+    #homeleft>button {
+        font-size: 7px;
+        padding: 3px 8px;
+    }
 }
