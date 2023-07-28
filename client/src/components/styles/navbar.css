@@ -4,7 +4,7 @@
     border: 2px outset rgba(255, 255, 255, .1);
     box-shadow: 0px 0px 10px rgba(255, 167, 167, 0.8);
     backdrop-filter: blur(2px);
-    
+
 
     display: flex;
     justify-content: space-between;
@@ -36,6 +36,7 @@
     list-style: none;
     margin: 50px;
     transition: all 0.1s ease;
+    cursor: pointer;
 }
 
 #headlinks>ul>li:hover {
@@ -43,16 +44,59 @@
     transform: scale(1.05);
 }
 
-#btnNav{
+#btnNav {
     border: 2px solid var(--theme-pri);
-    color: var(--theme-pri);
-    background: transparent;
-    font-size: small;
-    font-weight: bold;
-    padding: 5px 20px;
+    padding: 3px;
+    height: calc(var(--navbar-height)*.7);
+    border-radius: 110px;
+    background-color: white;
+    cursor: pointer;
 }
 
-#btnNav:hover{
-    color: white;
-    background: var(--theme-pri);
+#btnNav:hover {
+    transform: scale(1.2);
+    border-width: 5px;
+    /* background-color: silver; */
+}
+
+#profileSec {
+    border: 2px solid red;
+
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    padding-top: 50px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255, 255, 255, .8);
+    border: 2px outset rgba(255, 255, 255, .1);
+    box-shadow: 0px 0px 10px rgba(255, 167, 167, 0.8);
+    backdrop-filter: blur(2px);
+}
+
+#profileSec>* {
+    padding: 5px 10px;
+}
+
+#backArrow {
+    height: 50px;
+    margin: 30px auto 1px 1px;
+    transform: rotate(180deg);
+}
+
+#myBlogs{
+    color: var(--theme-pri);
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+#myBlogs:hover{
+    background: rgba(192, 192, 192, 0.1);
+    transform: scale(1.1);
 }

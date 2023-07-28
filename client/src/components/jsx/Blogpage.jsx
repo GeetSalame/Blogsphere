@@ -3,6 +3,7 @@ import '../styles/blogpage.css';
 import Blogcard from './Blogcard';
 import categories from '../../data/categories.js';
 import ReactLoading from 'react-loading';
+import { auth } from '../../config/firebase';
 
 //APIs
 import { apiGetAllBlogs } from '../../service/api';
@@ -43,7 +44,7 @@ function Blogpage() {
                         }
                     </ul>
                 </div>
-                <button className='btn' onClick={() => { navigate('/create') }}>Create</button>
+                <button className='btn' onClick={() => { auth.currentUser ? navigate('/create') : navigate('/login') }}>Create</button>
             </div>
             <div id="blogsSec">
                 <h3>Blogs</h3>

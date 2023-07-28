@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../../styles/createblog.css';
 import { useNavigate } from 'react-router-dom';
 import categories from '../../../data/categories';
+import { auth } from '../../../config/firebase';
 
 // API calls
 import { apiCreateBlog } from '../../../service/api';
@@ -24,7 +25,7 @@ function Createblog() {
     description: "",
     category: "",
     blogimg: "",
-    author: "",
+    author: localStorage.getItem("author"),
     timepublished: formatTime(new Date())
   });
 
@@ -55,7 +56,6 @@ function Createblog() {
     if (!(blogDetail.title)) alert("Seems like you forgot to add title");
     else if (!(blogDetail.description)) alert("Seems like you forgot to tell your story");
     else if (!(blogDetail.category) || (blogDetail.category === "none")) alert("Seems like you forgot to select category");
-    else if (!(blogDetail.blogimg)) alert("Something went wrong!!! We couldn't get your blog image");
     else if (!(blogDetail.author)) alert("Seems like you are not logged in. Please log in and come again. Your work might get lost");
     else if (!(blogDetail.timepublished)) alert("Something went wrong!!! We coudn't fetch current time...");
     else {
@@ -89,7 +89,7 @@ function Createblog() {
         </select>
         <input type="text" name="title" id="createbtitle" placeholder='Click here to add Title' onChange={(e) => { changeBlogDetail(e) }} />
         <textarea name="description" id="createbblah" cols="30" rows="5" placeholder='Click here to tell your story...' onKeyUp={(e) => { adjustTextArea(e) }} onChange={(e) => { changeBlogDetail(e) }}></textarea>
-        <input type="text" name="author" id="createbauthor" maxLength={20} placeholder='Click here to add Author...' onChange={(e) => { changeBlogDetail(e) }} />
+        {/* <input type="text" name="author" id="createbauthor" maxLength={20} placeholder='Click here to add Author...' onChange={(e) => { changeBlogDetail(e) }} /> */}
         <div id="bpostsec">
           <button className='btn' id='bdiscard' onClick={() => { navigate('/') }}>Discard</button>
           <button className='btn' id='bpost' onClick={() => { Publish(); }}>Publish</button>

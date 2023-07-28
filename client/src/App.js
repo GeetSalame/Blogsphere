@@ -11,6 +11,7 @@ import Createblog from "./components/jsx/crud_pages/Createblog";
 import Readblog from "./components/jsx/crud_pages/Readblog";
 import Footer from "./components/jsx/Footer";
 import Updateblog from "./components/jsx/crud_pages/Updateblog";
+import { Auth } from "./config/auth";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/blog/:id" element={<Readblog />} />
           <Route path="/update/:id" element={<Updateblog />} />
           <Route path="/about" element={<Aboutpage />} />
+          <Route path="/login" element={<Auth />} />
           <Route path="/*" element={<Pagenotfound />} />
         </Routes>
       </div>

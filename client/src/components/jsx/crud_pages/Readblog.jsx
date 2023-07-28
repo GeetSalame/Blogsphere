@@ -43,10 +43,12 @@ function Readblog(props) {
                                 <p id="buthor">@{blog.author}</p>
                             </div>
                             <p id="bblah">{blog.description}</p>
-                            <div id="beditsec">
-                                <button className='btn' id='bdelete' onClick={() => { handleDelete() }}>Delete</button>
-                                <button className='btn' id='bupdate' onClick={() => { navigate(`/update/${blog._id}`) }}>Update</button>
-                            </div>
+                            {(blog.author === localStorage.getItem("author")) ?
+                                <div id="beditsec">
+                                    <button className='btn' id='bdelete' onClick={() => { handleDelete() }}>Delete</button>
+                                    <button className='btn' id='bupdate' onClick={() => { navigate(`/update/${blog._id}`) }}>Update</button>
+                                </div> : <></>
+                            }
                         </div>
                     </>
                     : <div style={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>

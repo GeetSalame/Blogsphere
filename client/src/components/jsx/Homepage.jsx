@@ -3,6 +3,7 @@ import '../styles/homepage.css';
 import bloggingPNG from '../../img/blogging.png';
 import { useNavigate } from 'react-router-dom';
 import ReactLoading from 'react-loading';
+import { auth } from '../../config/firebase';
 
 function Homepage() {
     const navigate = useNavigate();
@@ -12,7 +13,7 @@ function Homepage() {
                 <h1>Welcome to <span id='logo'><span>Blog</span>Sphere</span></h1>
                 <p >Embark the Journey of Exploration</p>
                 {/* <p style={{ fontStyle: 'italic' }}>Embark the Journey of Exploration</p> */}
-                <button className='btn' onClick={() => { navigate('/create') }}>Start Blogging</button>
+                <button className='btn' onClick={() => { auth.currentUser ? navigate('/create') : navigate('/login') }}>Start Blogging</button>
             </div>
             <div id="right">
                 {
