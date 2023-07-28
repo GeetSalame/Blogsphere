@@ -40,7 +40,7 @@ function Readblog(props) {
                             <h1 id="btitle">{blog.title}</h1>
                             <div id="bcredential">
                                 <p id="btimestamp">{blog.timepublished}</p>
-                                <p id="buthor">@{blog.author}</p>
+                                <p id="buthor">@{blog.author.split("@")[0]}</p>
                             </div>
                             <p id="bblah">{blog.description}</p>
                             {(blog.author === localStorage.getItem("author")) ?

@@ -17,7 +17,7 @@ function Blogcard({ blogObj }) {
                     </div>
                     <div style={{ display: 'flex', gap: '10px' }}>
                         <div>
-                            <p id='author'>{blogObj.author}</p>
+                            <p id='author'>{blogObj.author.split("@")[0]}</p>
                             <p id='timestamp'>{blogObj.timepublished}</p>
                         </div>
                         {/* <img id='dp' src="https://cdn-icons-png.flaticon.com/512/64/64572.png" alt="" /> */}

@@ -15,6 +15,7 @@ export const Auth = () => {
         try {
             await createUserWithEmailAndPassword(auth, email, password);
             alert("User Created!!");
+            setTimeout(navigate("/"), 2000);
         } catch (err) {
             alert(err);
             console.error(err);

@@ -68,8 +68,8 @@ function Navbar() {
                         <div id='profileSec'>
                             <img src={dp} style={{ width: "50px" }} alt="profile" />
                             {/* <p>usernaame</p> */}
-                            <p style={{ fontStyle: "italic", fontWeight: "bold" }}>{auth.currentUser.email ? auth.currentUser.email : <></>}</p>
-                            <p id='myBlogs'>My Blogs</p>
+                            <p style={{ fontStyle: "italic", fontWeight: "bold" }}>{auth.currentUser.email ? auth.currentUser.email.split("@")[0] : <></>}</p>
+                            {/* <p id='myBlogs'>My Blogs</p> */}
                             <button className='btn' onClick={() => { logOut() }}>Log Out</button>
                             <img src={leftArrow} id='backArrow' alt="back" onClick={() => { hideProfilesec() }} />
                         </div>

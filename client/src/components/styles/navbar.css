@@ -72,7 +72,7 @@
     justify-content: center;
     align-items: center;
 
-    background-color: rgba(255, 255, 255, .8);
+    background-color: rgba(255, 255, 255, .9);
     border: 2px outset rgba(255, 255, 255, .1);
     box-shadow: 0px 0px 10px rgba(255, 167, 167, 0.8);
     backdrop-filter: blur(2px);
