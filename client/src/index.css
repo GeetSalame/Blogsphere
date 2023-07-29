@@ -11,15 +11,31 @@
 }
 
 :root {
-  --theme-pri: red;
+  --theme-pri: rgb(255, 0, 0);
+  --theme-pri-faint: rgba(255, 0, 0, 0.4);
   --theme-sec: blue;
   --theme-ter: yellow;
   --navbar-height: 50px;
 }
 
 
-body {
-  /* body properties here */
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  /* display: none; */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--theme-pri-faint);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+h1{
+  color: var(--theme-pri);
 }
 
 .btn {
@@ -29,6 +45,7 @@ body {
   border: 2px solid var(--theme-pri);
   margin: 20px 0;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -36,8 +53,55 @@ body {
   background-color: var(--theme-pri);
 }
 
-#footer {
-  color: silver;
-  text-align: center;
-  margin: 50px 0 30px;
+.btn2 {
+  color: white;
+  background-color: var(--theme-pri);
+  padding: 5px 20px;
+  border: 2px solid var(--theme-pri);
+  margin: 20px 0;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+/* .btn2:hover {
+  color: var(--theme-pri);
+  background-color: transparent;
+} */
+
+.inp {
+  border: 2px solid rgba(192, 192, 192, .5);
+  width: 100%;
+  height: 30px;
+  padding: 10px;
+}
+
+.loadscreendiv{
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+/*------------------------------------------ Responsiveness */
+@media screen and (max-width : 1000px) {
+  .btn, .btn2{
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width : 800px) {
+  .btn, .btn2 {
+    font-size: 10px;
+    padding: 3px 10px;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width : 600px) {
+  
 }

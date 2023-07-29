@@ -4,7 +4,7 @@ import { createBlog, deleteBlog, getAllBlogs, getBlog, updateBlog } from '../con
 const router = express.Router();
 
 router.post('/create', createBlog);
-router.get('/blogs', getAllBlogs);
+router.get('/blogs/:catg', getAllBlogs);
 router.get('/blog/:id', getBlog);
 router.post('/update/:id', updateBlog);
 router.delete('/delete/:id', deleteBlog);

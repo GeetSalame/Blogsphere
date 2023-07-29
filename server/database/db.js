@@ -1,9 +1,11 @@
 import mongoose from 'mongoose';
+import dotenv from "dotenv";
+dotenv.config();
 
 const dbConnection = async () => {
 
     try {
-        const dbURL = 'mongodb+srv://geetsalame156:Mongodbat123@blogspheredb.8kthxtd.mongodb.net/?retryWrites=true&w=majority'
+        const dbURL = process.env.envDBUrl;
 
         await mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true });
 

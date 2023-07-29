@@ -1,0 +1,96 @@
+#auth {
+    /* border: 2px solid red; */
+    display: flex;
+    height: 80vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+#authContainer {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    min-height: 300px;
+    box-shadow: 0px 9px 16px silver;
+}
+
+#authSwitch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+#authBody {
+    /* border: 2px solid red; */
+    min-height: 250px;
+    display: flex;
+    overflow: scroll;
+    text-align: center;
+}
+
+#signinSec,
+#signupSec {
+    min-height: 250px;
+    min-width: 100%;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+}
+
+.authBodyClass::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    display: none;
+}
+
+.authBodyClass::-webkit-scrollbar-thumb {
+    background: var(--theme-pri);
+    border-radius: 10px;
+}
+
+.authBodyClass::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.switchLink {
+    text-decoration: underline;
+    color: silver;
+    font-size: small;
+}
+
+#googleBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    color: black;
+}
+
+#googleBtn:hover {
+    box-shadow: 0px 10px 10px silver;
+    background: none;
+}
+
+#googleBtn>img {
+    height: 20px;
+}
+
+
+/*------------------------------------------ Responsiveness */
+@media screen and (max-width : 800px) {
+    #signinSec>button, #signupSec>button {
+        font-size: 13px;
+    }
+
+    #authContainer {
+        padding: 20px 0;
+    }
+
+}

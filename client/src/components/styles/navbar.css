@@ -4,7 +4,7 @@
     border: 2px outset rgba(255, 255, 255, .1);
     box-shadow: 0px 0px 10px rgba(255, 167, 167, 0.8);
     backdrop-filter: blur(2px);
-    
+
 
     display: flex;
     justify-content: space-between;
@@ -36,6 +36,7 @@
     list-style: none;
     margin: 50px;
     transition: all 0.1s ease;
+    cursor: pointer;
 }
 
 #headlinks>ul>li:hover {
@@ -43,16 +44,178 @@
     transform: scale(1.05);
 }
 
-#btnNav{
+#btnNav {
     border: 2px solid var(--theme-pri);
-    color: var(--theme-pri);
-    background: transparent;
-    font-size: small;
-    font-weight: bold;
-    padding: 5px 20px;
+    padding: 3px;
+    height: calc(var(--navbar-height)*.7);
+    border-radius: 110px;
+    background-color: white;
+    cursor: pointer;
 }
 
-#btnNav:hover{
-    color: white;
-    background: var(--theme-pri);
+#btnNav:hover {
+    transform: scale(1.2);
+    border-width: 5px;
+    /* background-color: silver; */
+}
+
+#profileSec {
+    border: 2px solid red;
+
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    padding-top: 50px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px outset rgba(255, 255, 255, .1);
+    box-shadow: 0px 0px 10px rgba(255, 167, 167, 0.8);
+    backdrop-filter: blur(2px);
+}
+
+#profileSec>* {
+    padding: 5px 10px;
+}
+
+#backArrow {
+    height: 50px;
+    margin: 30px auto 1px 1px;
+    transform: rotate(180deg);
+}
+
+#myBlogs {
+    color: var(--theme-pri);
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+#myBlogs:hover {
+    background: rgba(192, 192, 192, 0.1);
+    transform: scale(1.1);
+}
+
+
+#navMenu {
+    height: 20px;
+    display: none;
+}
+
+#sidenav {
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    border: 2px solid red;
+    padding: 20px 0 0;
+
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px outset rgba(255, 255, 255, .1);
+    box-shadow: 0px 0px 10px rgba(255, 167, 167, 0.8);
+    backdrop-filter: blur(2px);
+}
+
+#sideheadlinks>ul{
+    font-size: small;
+    list-style: none;
+    margin: 30px 0 50px;
+}
+
+#sideheadlinks>ul>li{
+    margin: 25px 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#sideprofileSec{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#sideprofileSec>p{
+    font-size: 10px;
+}
+
+#sideloginSec{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#sideloginSec>*{
+    margin: 0;
+}
+
+#sideloginSec>*>*{
+    margin: 0;
+}
+
+#sideloginSec>*>*{
+    margin: 10px 0;
+}
+
+/*------------------------------------------ Responsiveness */
+@media screen and (max-width : 1000px) {
+    #logo {
+        font-size: 20px;
+    }
+
+    #headlinks>ul>li {
+        margin: 30px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width : 800px) {
+    #logo {
+        font-size: 15px;
+    }
+
+    #headlinks>ul>li {
+        margin: 20px;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    #headlinks>ul>li {
+        margin: 15px;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width : 500px) {
+    #logo {
+        font-size: 20px;
+    }
+
+    #navMenu {
+        display: block;
+    }
+
+    #headlinks,
+    #btnNav,
+    #loginSec {
+        display: none;
+    }
+}
+
+@media screen and (max-width : 400px) {
+    #logo, #navMenu {
+        font-size: 20px;
+    }
 }

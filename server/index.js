@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 import dbConnection from './database/db.js';
 import router from './routes/route.js';
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const app = express();
 
 app.use(cors());
