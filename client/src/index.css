@@ -75,6 +75,18 @@ h1{
   padding: 10px;
 }
 
+.loadscreendiv{
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
 /*------------------------------------------ Responsiveness */
 @media screen and (max-width : 1000px) {
   .btn, .btn2{

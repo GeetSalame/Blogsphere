@@ -56,7 +56,7 @@ function Createblog() {
     if (!(blogDetail.title)) alert("Seems like you forgot to add title");
     else if (!(blogDetail.description)) alert("Seems like you forgot to tell your story");
     else if (!(blogDetail.category) || (blogDetail.category === "none")) alert("Seems like you forgot to select category");
-    else if (!(blogDetail.author)) alert("Seems like you are not logged in. Please log in and come again. Your work might get lost");
+    else if (!localStorage.getItem("author")) alert("Seems like you are not logged in. Please log in and come again. Your work might get lost");
     else if (!(blogDetail.timepublished)) alert("Something went wrong!!! We coudn't fetch current time...");
     else {
       console.log(blogDetail);

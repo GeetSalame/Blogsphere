@@ -132,7 +132,9 @@
 }
 
 #sideheadlinks>ul>li{
-    margin: 10px 0;
+    margin: 25px 0;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 #sideprofileSec{

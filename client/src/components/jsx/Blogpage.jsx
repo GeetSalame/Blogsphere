@@ -16,9 +16,13 @@ function Blogpage() {
 
     useEffect(() => {
         const loadBlogsData = async () => {
-            let allBlogs = await apiGetAllBlogs(catg);
-            // console.log("1: ", allBlogs);
-            setBlogs(allBlogs);
+            try {
+                let allBlogs = await apiGetAllBlogs(catg);
+                // console.log("1: ", allBlogs);
+                setBlogs(allBlogs);
+            } catch (error) {
+                alert(error);
+            }
         }
         loadBlogsData();
     }, [catg])  //get all blogs at every page refresh
@@ -32,7 +36,7 @@ function Blogpage() {
         <div id='blogpage'>
             <div id='filterSec'>
                 <div>
-                <img src="https://cdn-icons-png.flaticon.com/512/7479/7479439.png" alt="" id='crossIcon' onClick={() => { document.getElementById("filterSec").style.display = "none" }}/>
+                    <img src="https://cdn-icons-png.flaticon.com/512/7479/7479439.png" alt="" id='crossIcon' onClick={() => { document.getElementById("filterSec").style.display = "none" }} />
                     <h3>Categories</h3>
                     <ul id='categoryList'>
                         <li><input type="radio" name="category" id="" value="All" onChange={(e) => { handleCatChange(e) }} defaultChecked /> &nbsp; All</li>
@@ -49,15 +53,18 @@ function Blogpage() {
             </div>
             <div id="blogsSec">
                 <h3>Blogs</h3>
-                <img id='filterIcon' src="https://cdn-icons-png.flaticon.com/512/10308/10308753.png" alt="" srcset="" onClick={() => { document.getElementById("filterSec").style.display = "flex" }} />
+                <img id='filterIcon' src="https://cdn-icons-png.flaticon.com/512/10308/10308753.png" alt="" onClick={() => { document.getElementById("filterSec").style.display = "flex" }} />
                 <div id='blogs'>
                     {
-                        blogs?.length ? blogs.map(blog => (
-                            <Blogcard blogObj={blog} />
-                        )).reverse() : <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                            <p style={{ textAlign: "center" }}><br />No Blogs Avaiable for this category...<br />OR<br /> you can try Refreshing the Page</p>
-                            <ReactLoading type="spokes" color="#FF0000" height={100} width={50} />
-                        </div>
+                        blogs?.length ?
+                            blogs.map(blog => (
+                                <Blogcard blogObj={blog} />
+                            )).reverse() :
+                            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                                <p style={{ textAlign: "center" }}><br />No Blogs Avaiable for this category...<br />OR<br /> you can try Refreshing the Page</p>
+                                <ReactLoading type="spokes" color="#FF0000" height={100} width={50} />
+                            </div>
+
                     }
                 </div>
             </div>

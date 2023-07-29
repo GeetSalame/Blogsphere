@@ -35,7 +35,7 @@ function Updateblog() {
         }
         loadBlogData();
         console.log(blog);
-    }, [])  //get all blogs at every page refresh
+    }, [])  //get blog at every page refresh
 
     const handleBlogChange = (e) => {
         setBlog({ ...blog, [e.target.name]: e.target.value });
@@ -88,10 +88,10 @@ function Updateblog() {
                             </div>
                         </div>
                         <div id="updateblogbody">
-                            <select name="" id="updatecategory">
+                            <select name="category" id="updatecategory" defaultValue={blog.category} onChange={(e) => { handleBlogChange(e) }}>
                                 <option value="" style={{ color: "silver" }} disabled>Select Category</option>
                                 {categories.map(category =>
-                                    <option value="">{category}</option>
+                                    <option value={category}>{category}</option>
                                 )}
                             </select>
                             <input type="text" name="title" id="updatebtitle" value={`${blog.title}`} onChange={(e) => { handleBlogChange(e) }} />

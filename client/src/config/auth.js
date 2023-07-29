@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword, signInWithPopup, signOut, signInWithEma
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../components/styles/auth.css';
+import ReactLoading from 'react-loading';
 
 export const Auth = () => {
     const navigate = useNavigate();
@@ -11,28 +12,42 @@ export const Auth = () => {
     const [password, setPassword] = useState("");
     console.log(auth?.currentUser);
 
+    const loadScreen = () => {
+        document.getElementById("loadingscreen").style.display = "flex";
+    }
+
+    const hideloadScreen = () => {
+        document.getElementById("loadingscreen").style.display = "none";
+    }
+
     const signUp = async () => {
         try {
+            loadScreen();
             await createUserWithEmailAndPassword(auth, email, password);
             alert("User Created!!");
+            hideloadScreen();
             setTimeout(navigate("/"), 2000);
         } catch (err) {
             alert(err);
+            hideloadScreen();
             console.error(err);
         }
     };
 
     const signIn = async () => {
         try {
+            loadScreen();
             await signInWithEmailAndPassword(auth, email, password);
             alert("Signed In!!");
+            hideloadScreen();
             setTimeout(navigate("/"), 2000);
         } catch (err) {
             alert(err);
+            hideloadScreen();
             console.error(err);
         }
     };
-    
+
     const signInWithGoogle = async () => {
         try {
             await signInWithPopup(auth, googleProvider);
@@ -53,6 +68,9 @@ export const Auth = () => {
     });
     return (
         <div id="auth">
+            <div className="loadscreendiv" id="loadingscreen">
+                <ReactLoading type="spokes" color="#FF0000" height={200} width={100} />
+            </div>
             <div id="authContainer">
                 <div id="authSwitch">
                     <a href="#signinSec" className="btn" style={{ textDecoration: "none", fontSize: "small" }}>Sign In</a>
