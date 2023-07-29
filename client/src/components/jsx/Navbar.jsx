@@ -43,6 +43,7 @@ function Navbar() {
         try {
             await signOut(auth);
             alert("Logged Out");
+            hideSideNav();
             setTimeout(() => {
                 navigate("/login");
             }, 500);
@@ -62,7 +63,7 @@ function Navbar() {
 
     return (
         <div id='navbarbody'>
-            <h1 id="logo" onClick={() => { navigate('/') }}><span>Blog</span>Sphere</h1>
+            <h1 style={{ color: "black" }} id="logo" onClick={() => { navigate('/') }}><span>Blog</span>Sphere</h1>
             <div id="headlinks">
                 <ul>
                     <li onClick={() => navigate('/')}>Home</li>
@@ -109,7 +110,7 @@ function Navbar() {
                                 <p style={{ fontStyle: "italic", fontWeight: "bold" }}>{auth.currentUser.email ? auth.currentUser.email.split("@")[0] : <></>}</p>
                                 {/* <p id='myBlogs'>My Blogs</p> */}
                                 <button className='btn' onClick={() => { logOut() }}>Log Out</button>
-                                <img src={leftArrow} id='backArrow' alt="back" onClick={() => { hideProfilesec() }} />
+                                {/* <img src={leftArrow} id='backArrow' alt="back" onClick={() => { hideProfilesec() }} /> */}
                             </div>
                         </> :
                         <div id='sideloginSec'>

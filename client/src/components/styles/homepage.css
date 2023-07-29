@@ -6,6 +6,9 @@
     min-height: 80vh;
 }
 
+#homeleft>button {
+    padding: 4px 20px;
+}
 
 /*------------------------------------------ Responsiveness */
 @media screen and (max-width : 1000px) {
@@ -53,7 +56,6 @@
 
     #homeleft>button {
         font-size: 8px;
-        padding: 4px 10px;
     }
 
     #homeright>img {
@@ -62,10 +64,13 @@
 }
 
 @media screen and (max-width : 600px) {
+    
     #homepage {
         gap: 10px;
         flex-direction: column-reverse;
         text-align: center;
+        min-height: 75vh;
+        /* border: 2px solid red; */
     }
 
     #homeleft>h1 {
@@ -77,24 +82,19 @@
     }
 
     #homeleft>button {
-        font-size: 8px;
-        padding: 4px 10px;
+        font-size: 12px;
     }
 
     #homeright>img {
-        width: 200px;
+        width: 300px;
     }
 }
 
 @media screen and (max-width : 500px) {
     #homeleft>h1 {
-        font-size: 15px;
-    }
-    #homeleft>p {
-        font-size: 7px;
+        font-size: 20px;
     }
     #homeleft>button {
-        font-size: 7px;
-        padding: 3px 8px;
+        margin-top: 10px;
     }
 }

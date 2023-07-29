@@ -30,7 +30,7 @@
     backdrop-filter: blur(2px);
 }
 
-#pulltag{
+#pulltag {
     position: fixed;
     z-index: 100;
     left: var(--filterSecWidth);
@@ -45,6 +45,32 @@
     list-style: none;
 }
 
+#filterIcon{
+    display: none;
+}
+
+#filterIcon:hover{
+    transform: scale(1.1);
+}
+
+#filterSec>div{
+    display: flex;
+    flex-direction: column;
+}
+
+#filterSec>button{
+    padding: 5px 20px;
+}
+
+#crossIcon{
+    height: 20px;
+    margin-left: auto;
+    display: none;
+}
+
+#crossIcon:hover{
+    transform: scale(1.1);
+}
 
 /* -----------------------------------------------------Blog sections */
 #blogsSec {
@@ -68,4 +94,62 @@ h3 {
     align-items: center;
     justify-content: center;
     gap: 50px 50px;
+}
+
+
+/*------------------------------------------ Responsiveness */
+@media screen and (max-width : 1200px) {
+    :root {
+        --filterSecWidth: 200px;
+    }
+}
+
+@media screen and (max-width : 800px) {
+    :root {
+        --filterSecWidth: 150px;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+
+    #categoryList>li{
+        font-size: 10px;
+    }
+
+    #filterSec {
+        padding: 20px 10px 10vh;
+        display: none;
+        z-index: 200;
+    }
+
+    #filterIcon{
+        display: block;
+        height: 50px;
+        position: fixed;
+        z-index: 100;
+        top: 100px;
+        left: 10px;
+    }
+
+    #blogsSec {
+        margin: 0;
+    }
+
+    #crossIcon{
+        display: block;
+    }
+
+    #blogs {
+        gap: 40px 30px;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    #filterIcon{
+        top: 80px;
+    }
+    :root {
+        --filterSecWidth: 50vw;
+    }
 }

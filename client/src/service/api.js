@@ -17,7 +17,7 @@ export const apiGetAllBlogs = async (catg) => {
         let allBLogs = await axios.get(`${URL}/blogs/${catg}`);
         return allBLogs.data;   //getting only the data part of whole object where all blog objects are located
     } catch (error) {
-        alert("API Error while getting all posts, ", error);
+        alert("Try Checking your Internet Connection\n", error);
     }
 }
 

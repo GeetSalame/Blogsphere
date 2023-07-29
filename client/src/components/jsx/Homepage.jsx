@@ -10,7 +10,7 @@ function Homepage() {
     return (
         <div id='homepage'>
             <div id="homeleft">
-                <h1>Welcome to <span id='logo'><span>Blog</span>Sphere</span></h1>
+                <h1 style={{ color: "black" }}>Welcome to <span id='logo'><span>Blog</span>Sphere</span></h1>
                 <p>Embark the Journey of Exploration</p>
                 <button className='btn' onClick={() => { auth.currentUser ? navigate('/create') : navigate('/login') }}>Start Blogging</button>
             </div>
