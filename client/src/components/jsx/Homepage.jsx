@@ -4,6 +4,7 @@ import bloggingPNG from '../../img/blogging.png';
 import { useNavigate } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 import { auth } from '../../config/firebase';
+import Footer from './Footer';
 
 function Homepage() {
     const navigate = useNavigate();

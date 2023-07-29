@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import '../styles/aboutpage.css';
 import emailjs from '@emailjs/browser';
+import Footer from './Footer';
 
 function Aboutpage() {
 
@@ -55,6 +56,7 @@ function Aboutpage() {
         <textarea name="" className='inp' id="feedback" placeholder='Enter Feedback...' cols="30" rows="50"></textarea>
         <button className='btn' onClick={() => { sendFeedback() }}>Send</button>
       </div>
+      <Footer />
     </div>
   )
 }

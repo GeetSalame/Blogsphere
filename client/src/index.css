@@ -12,15 +12,27 @@
 
 :root {
   --theme-pri: rgb(255, 0, 0);
+  --theme-pri-faint: rgba(255, 0, 0, 0.4);
   --theme-sec: blue;
   --theme-ter: yellow;
   --navbar-height: 50px;
 }
 
 
-/* body {
-  body properties here
-} */
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  /* display: none; */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--theme-pri-faint);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
 
 h1{
   color: var(--theme-pri);
@@ -56,12 +68,6 @@ h1{
   background-color: transparent;
 } */
 
-#footer {
-  color: silver;
-  text-align: center;
-  margin: 50px 0 30px;
-}
-
 .inp {
   border: 2px solid rgba(192, 192, 192, .5);
   width: 100%;
@@ -85,7 +91,5 @@ h1{
 }
 
 @media screen and (max-width : 600px) {
-  #footer {
-    font-size: x-small;
-  }
+  
 }
