@@ -1,6 +1,6 @@
 import axios from 'axios';  //to communicate with APIs
 
-const URL = 'http://localhost:8000';    //URL to server
+const URL = 'https://blogsphereserver.onrender.com';    //URL to server
 
 export const apiCreateBlog = async (blogDetailObj) => {
     try {

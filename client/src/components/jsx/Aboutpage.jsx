@@ -19,8 +19,6 @@ function Aboutpage() {
     emailjs.send(serviceID, templateID, params, publicKey)
       .then(
         res => {
-          document.getElementById("name").value = "";
-          document.getElementById("email").value = "";
           document.getElementById("feedback").value = "";
 
           console.log("Feedback Form entries : ", res);
