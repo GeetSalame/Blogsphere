@@ -24,7 +24,7 @@ function Createblog() {
     title: "",
     description: "",
     category: "",
-    blogimg: "",
+    blogimg: "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg",
     author: localStorage.getItem("author"),
     timepublished: formatTime(new Date())
   });
@@ -67,7 +67,7 @@ function Createblog() {
   }
 
   useEffect(() => {
-    document.getElementById("blogImg").src = blogDetail.blogimg || "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg";
+    document.getElementById("blogImg").src = blogDetail.blogimg;
   }, [blogDetail.blogimg])
 
   return (
